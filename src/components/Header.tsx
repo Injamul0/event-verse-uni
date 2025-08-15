@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import eventClubLogo from "@/assets/event-club-logo.png";
 
 const Header = () => {
@@ -34,17 +35,17 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 group">
             <img
               src={eventClubLogo}
               alt="Event Club Logo"
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain transition-smooth group-hover:scale-105"
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground">EventClub</h1>
+              <h1 className="text-xl font-bold text-foreground group-hover:text-accent transition-smooth">EventClub</h1>
               <p className="text-xs text-muted-foreground">University Events</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -61,11 +62,11 @@ const Header = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant="ghost" className="text-foreground hover:text-accent">
-              Login
+            <Button variant="ghost" className="text-foreground hover:text-accent" asChild>
+              <Link to="/login">Login</Link>
             </Button>
-            <Button className="bg-gradient-accent text-accent-foreground glow-hover">
-              Sign Up
+            <Button className="bg-gradient-accent text-accent-foreground glow-hover" asChild>
+              <Link to="/signup">Sign Up</Link>
             </Button>
           </div>
 
@@ -95,11 +96,11 @@ const Header = () => {
                 </a>
               ))}
               <div className="flex flex-col space-y-2 pt-3 border-t border-border">
-                <Button variant="ghost" className="text-foreground hover:text-accent justify-start">
-                  Login
+                <Button variant="ghost" className="text-foreground hover:text-accent justify-start" asChild>
+                  <Link to="/login">Login</Link>
                 </Button>
-                <Button className="bg-gradient-accent text-accent-foreground justify-start">
-                  Sign Up
+                <Button className="bg-gradient-accent text-accent-foreground justify-start" asChild>
+                  <Link to="/signup">Sign Up</Link>
                 </Button>
               </div>
             </nav>

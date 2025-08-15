@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { EyeIcon, EyeOffIcon, Mail, Lock, User, GraduationCap, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import eventClubLogo from "@/assets/event-club-logo.png";
 
 const SignUpForm = () => {
@@ -286,9 +287,9 @@ const SignUpForm = () => {
 
             <div className="text-center text-sm text-muted-foreground">
               Already have an account?{" "}
-              <a href="#" className="text-accent hover:text-accent-warm transition-smooth font-medium">
+              <Link to="/login" className="text-accent hover:text-accent-warm transition-smooth font-medium">
                 Sign in here
-              </a>
+              </Link>
             </div>
           </CardFooter>
         </form>
